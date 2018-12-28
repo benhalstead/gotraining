@@ -1,0 +1,2 @@
+# gotraining
+Introduction to Go
