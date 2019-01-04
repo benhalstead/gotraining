@@ -29,7 +29,12 @@ func main() {
 	//Strings
 	ann.Section("Strings")
 
-	//Strings are immutable sequences of bytes - you may include unicode in strings
+	//Strings are immutable sequences of bytes in memory, but Go generally protects you from how bytes
+	// map to unicode code points (runes in Go terminology) This is well worth a read:
+	//
+	// https://blog.golang.org/strings
+
+	//You may include unicode in string literals
 	s := "Hello 😐!"
 
 	fmt.Println(s)
