@@ -7,13 +7,19 @@ import (
 
 func main() {
 
-	// A variable can be delcared with a specific type, declared and initialised in one statement
+	// A variable can be declared with a specific type, declared and initialised in one statement
 	annotation.Section("Declarations and initialisation")
 
+	//Declare and set value, let the compiler work out the type
 	x := 2
+
+	// Declare a variable of a particular type
 	var y int
+
+	//Declare and set value, let the compiler work out the type
 	var z int = 2
 
+	// fmt.Printf is Go's standard print function. The %T verb allows you to print the type of a variable
 	fmt.Printf("%T %T %T\n", x, y, z)
 
 	annotation.Section("interface{} values")
