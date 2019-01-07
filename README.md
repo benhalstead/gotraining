@@ -31,3 +31,8 @@ The following is the suggested reading order:
  1. [Pointers](structures/pointers.go)
  1. [Structs](structures/structs.go)
  1. [Methods and receivers](structures/methods.go)
+ 1. [Interfaces](variablestypes/interfaces.go)
+ 
+ ## Advanced functions
+ 
+ 1. [Variadic functions](functions/variadic.go)

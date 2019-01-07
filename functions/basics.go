@@ -1,4 +1,4 @@
-package functions
+package main
 
 import (
 	"fmt"
@@ -20,6 +20,10 @@ func PublicFunction() {
 
 func Params(a int, b string) {
 	//Parameter names come before the type
+}
+
+func SameParams(a, b, c int) {
+	// Only need to specify the type once in functions
 }
 
 func SingleReturn() bool {
