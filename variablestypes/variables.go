@@ -11,6 +11,9 @@ func main() {
 	// A variable can be declared with a specific type, declared and initialised in one statement
 	tutorial.Section("Declarations and initialisation")
 
+	// The (strong) Go convention is for very short variable names. The theory is that if you need a longer name for context, the surrounding
+	// code is too long
+
 	//Declare and set value, let the compiler work out the type
 	x := 2
 	n := time.Now()
@@ -27,7 +30,7 @@ func main() {
 	tutorial.Section("interface{} values")
 
 	// Once the type of a variable is determined, either implicitly or explicitly, you cannot change it
-	// x = "test" would not work. If you need this sort of behaviour, you must declared you variable as type interface{}
+	// x = "test" would not work. If you need this sort of behaviour, you must declared you variable as type interface{} (the empty interface)
 
 	var v interface{}
 
