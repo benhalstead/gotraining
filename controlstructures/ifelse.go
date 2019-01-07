@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	a "github.com/benhalstead/gotraining/annotation"
+	a "github.com/benhalstead/gotraining/tutorial"
 )
 
 // if/else if/else block is common to most C-syntax languages

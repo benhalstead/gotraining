@@ -11,12 +11,21 @@ repository](https://github.com/graniticio/granitic)
 
 The following is the suggested reading order:
 
+## Foundations
+  1. [Getting output from your code](output/output.go)
+ 
 ## Basic types, variables and control structures
 
- 1. [Getting output from your code](output/output.go)
  1. [Declaring and intialising variables](variablestypes/variables.go)
  1. [Basic types](variablestypes/builtin.go)
  1. [Constants](variablestypes/builtin.go)
  1. [if-else statements](controlstructures/ifelse.go)
  1. [for statements](controlstructures/forloop.go)
  1. [switch statements](controlstructures/switch.go)
+ 1. [Functions](functions/basics.go)
+ 
+ ## Data structures
+ 
+ 1. [Slices and arrays](structures/slices.go)
+ 1. [Maps](structures/maps.go)
+ 1. [Pointers](structures/pointers.go)

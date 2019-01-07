@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/benhalstead/gotraining/annotation"
+	"github.com/benhalstead/gotraining/tutorial"
 )
 
 func main() {
@@ -13,7 +13,7 @@ func main() {
 	// The actual difference is explained in detail here:
 	// https://www.godesignpatterns.com/2014/05/arrays-vs-slices.html
 
-	annotation.Section("Creating slices")
+	tutorial.Section("Creating slices")
 
 	//Slices can be declared like any other variable
 
@@ -34,14 +34,14 @@ func main() {
 
 	fmt.Printf("Length: %d\n", len(ms))
 
-	annotation.Section("Modifying slices")
+	tutorial.Section("Modifying slices")
 
 	//You can add an item (or several items) to a slice using the append builtin (remeber to assign the result of the function to a variable)
 	ms = append(ms, 4, 5, 6)
 
 	fmt.Printf("%v Length: %d\n", ms, len(ms))
 
-	annotation.Section("Portions of slices")
+	tutorial.Section("Portions of slices")
 
 	//You can create a new slice only containing a subset of the parent slice using this syntax
 
@@ -54,7 +54,7 @@ func main() {
 	ss = ms[3:5] // Every element from (and including) index 3 to (and including) index 5
 	fmt.Printf("%v Length: %d\n", ss, len(ss))
 
-	annotation.Section("Iterating over slices")
+	tutorial.Section("Iterating over slices")
 
 	//You can use the range keyword in a for loop to iterate over a slice - both the current
 	//index and value are available
@@ -69,7 +69,7 @@ func main() {
 		fmt.Printf("%d\n", v)
 	}
 
-	annotation.Section("Arrays")
+	tutorial.Section("Arrays")
 
 	//If you specify a size when initialising a slice, it is an array
 	var a [2]string

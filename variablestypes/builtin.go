@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	ann "github.com/benhalstead/gotraining/annotation"
+	ann "github.com/benhalstead/gotraining/tutorial"
 	"strconv"
 )
 

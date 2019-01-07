@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	a "github.com/benhalstead/gotraining/annotation"
+	a "github.com/benhalstead/gotraining/tutorial"
 )
 
 // There are no while or do while loops in Go. The for statement is flexible enough to simulate those

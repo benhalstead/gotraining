@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/benhalstead/gotraining/annotation"
+	"github.com/benhalstead/gotraining/tutorial"
 )
 
 func main() {
 
-	annotation.Section("Maps")
+	tutorial.Section("Maps")
 
 	//Maps map a key to a value. Any type can be stored as a value, 'comparable' types can be used as keys
 	//See https://blog.golang.org/go-maps-in-action
@@ -29,7 +29,7 @@ func main() {
 	//In the example above, requesting sim["THREE"] returns 0, because that is the zero value for int
 
 	//Maps can also be declared as literals - note the trailing comma after the last item - this is required
-	annotation.Section("Maps literals")
+	tutorial.Section("Maps literals")
 
 	lm := map[string]int{
 		"ONE": 1,
@@ -38,7 +38,7 @@ func main() {
 
 	fmt.Printf("%v\n", lm)
 
-	annotation.Section("Iterating")
+	tutorial.Section("Iterating")
 
 	// You iterate over a map with the for range construct - both the current key and value are available to your code
 	for k, v := range lm {
