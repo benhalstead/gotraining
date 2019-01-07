@@ -42,7 +42,8 @@ func main() {
 	tutorial.Section("Define you own new methods")
 
 	// If your struct requires initialisation (e.g. unexported fields need to be populated), the convention is
-	// to make a function called NewTypeName in the same package as the struct
+	// to make a function called NewTypeName in the same package as the struct which will return you a correctly initialised instance
+	// of your struct.
 	icd := s.NewContactDetails("+44123123", "+441238432", "+44987123")
 
 	fmt.Printf("Struct pointer %#v\n", icd)

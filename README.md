@@ -29,3 +29,5 @@ The following is the suggested reading order:
  1. [Slices and arrays](structures/slices.go)
  1. [Maps](structures/maps.go)
  1. [Pointers](structures/pointers.go)
+ 1. [Structs](structures/structs.go)
+ 1. [Methods and receivers](structures/methods.go)
