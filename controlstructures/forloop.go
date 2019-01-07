@@ -15,8 +15,8 @@ func main() {
 		fmt.Printf("Counter is %d\n", i)
 	}
 
-	// If you just have a test, you can simulate a loop
-	a.Section("For statement as a loop")
+	// If you just have a test, you can simulate a while loop
+	a.Section("For statement as a 'while' loop")
 	n := 3
 
 	for n >= 0 {
