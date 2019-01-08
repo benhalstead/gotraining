@@ -28,6 +28,17 @@ func main() {
 	//If you request a key that is not present in the map, you will receive the ZERO VALUE for the map's value type
 	//In the example above, requesting sim["THREE"] returns 0, because that is the zero value for int
 
+	// If you need to know whether a map actually contained the key you asked for, you use this pattern:
+
+	if value, contains := sim["THREE"]; contains {
+		fmt.Printf("Map has key. Value was %d\n", value)
+	} else {
+		fmt.Printf("Map did not contain key\n")
+	}
+
+	// You could replace value with _ (blank identifier) in the above example if you just wanted to check that the map
+	// contained the value.
+
 	//Maps can also be declared as literals - note the trailing comma after the last item - this is required
 	tutorial.Section("Maps literals")
 
