@@ -32,6 +32,11 @@ The following is the suggested reading order:
   1. [Structs](structures/structs.go)
   1. [Methods and receivers](structures/methods.go)
   1. [Interfaces](variablestypes/interfaces.go)
+  
+ ## Error handling
+ 
+  1. [Errors](errorhandling/errors.go)
+  1. [Panic](errorhandling/panic.go)
  
  ## Advanced functions
  
