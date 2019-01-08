@@ -6,6 +6,12 @@ import (
 	"time"
 )
 
+//Variables declared outside of a func/struct with a capital first letter are 'global' variables
+var StartTime = time.Now()
+
+//Variables declared outside of a func/struct with a lowercase first letter are usable anywhere in the package
+var counter int = 0
+
 func main() {
 
 	// A variable can be declared with a specific type, declared and initialised in one statement

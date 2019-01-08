@@ -112,6 +112,23 @@ func main() {
 
 	fmt.Printf("Value using %%v is %v\n", p)
 
+	tutorial.Section("Converting concrete type back to an interface")
+
+	// This is possible using type assertions, but you have to do it via an interface{} variable
+
+	// Convert Person back to Named
+	var temp interface{}
+	temp = p
+
+	if n, okay := temp.(Named); okay {
+		n.Name()
+	}
+
+	// Convert Person back to Mesaurable
+	if m, okay := temp.(Measurable); okay {
+		m.Length()
+	}
+
 }
 
 func accept(i Named) {
