@@ -37,6 +37,10 @@ The following is the suggested reading order:
  
   1. [Errors](errorhandling/errors.go)
   1. [Panic](errorhandling/panic.go)
+  
+## Testing
+
+  1. [Unit tests](unittests/code_test.go)
  
  ## Advanced functions
  
