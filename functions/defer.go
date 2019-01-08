@@ -30,6 +30,10 @@ func main() {
 	tutorial.Section("Loop defer")
 	panicDefer()
 
+	// Defer executes _after_ the return statement - this means that the return value can be altered by defer statments, as long as the return values have names
+	tutorial.Section("Manipulate return values")
+	fmt.Println(echo(1))
+
 }
 
 func singleDefer() {
@@ -89,4 +93,14 @@ func openResource() {
 
 func closeResource() {
 	fmt.Println("Close resource")
+}
+
+func echo(i int) (result int) {
+
+	defer func() {
+		result++
+	}()
+
+	return i
+
 }

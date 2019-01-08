@@ -39,6 +39,7 @@ func MultiReturn() (bool, error) {
 
 func NamedReturn() (b bool, err error) {
 	// You can name your return values, but this is only really done to add clarity to GoDoc or to save a variable declaration
+	// and less commonly to allow defer statements to alter return values (see defer.go in this folder)
 	b = true
 	err = errors.New("Error message")
 
