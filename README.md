@@ -37,3 +37,4 @@ The following is the suggested reading order:
  
   1. [Variadic functions](functions/variadic.go)
   1. [Defer](functions/defer.go)
+  1. [Functions as types](functions/types.go)
