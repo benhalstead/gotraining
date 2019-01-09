@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/benhalstead/gotraining/tutorial"
+	"net/http"
+	"time"
 )
 
 func main() {
@@ -112,10 +114,71 @@ func main() {
 
 	// If you are reading from a channel outside of a range, you can use this syntax to check for a closed channel
 
+	tutorial.Section("Select and example")
+
+	// In this example we fetch three web pages concurrently using channels
+	// and the channel specific select control structure
+	// to detect when the work is done
+
 	if n, open := <-c; open {
 		fmt.Printf("Received %d\n", n)
 	} else {
 		fmt.Printf("Channel closed\n")
 	}
 
+	var googleResp *http.Response
+	var bbcResp *http.Response
+	var cfResp *http.Response
+
+	// In this example we will create a separate 'done' channel for each page we're requesting
+	// this could be done with a single channel (and would be a good refactoring exercise)
+	googleDone := make(chan bool)
+	bbcDone := make(chan bool)
+	cfDone := make(chan bool)
+
+	// Spawn goroutines to fetch each URL, passing a pointer to an object to store the result in
+	go get("http://www.google.com", &googleResp, googleDone)
+	go get("http://www.bbc.com", &bbcResp, bbcDone)
+	go get("http://www.cloudfactory.com", &cfResp, cfDone)
+
+WaitLoop:
+	for {
+		// The select control structure is only useful for channels
+		// Each case in the select will fire if a value can be read from the channel
+		select {
+		case <-bbcDone:
+			fmt.Printf("BBC page done\n")
+		case <-googleDone:
+			fmt.Printf("Google done\n")
+		case <-cfDone:
+			fmt.Printf("Cloudfactory done\n")
+		default:
+			// The default case will fire if none of the other cases do
+			if googleResp != nil && bbcResp != nil && cfResp != nil {
+				break WaitLoop
+			}
+
+			//In these circumstances it's common to sleep for a short time to stop the surrounding
+			//for loop consuming resources doing nothing but checks This time should be proportional
+			// to the activity in question
+			time.Sleep(time.Millisecond * 50)
+		}
+
+	}
+
+	fmt.Printf("Google response was %d\n", googleResp.StatusCode)
+	fmt.Printf("BBC response was %d\n", bbcResp.StatusCode)
+	fmt.Printf("CF response was %d\n", cfResp.StatusCode)
+
+}
+
+func get(url string, result **http.Response, finish chan bool) {
+
+	if r, err := http.Get(url); err == nil {
+		*result = r
+	} else {
+		fmt.Printf("Error reading %s: %s\n", url, err.Error())
+	}
+
+	finish <- true
 }
