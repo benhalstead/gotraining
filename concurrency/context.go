@@ -65,8 +65,8 @@ func creatingContextsExample() {
 
 type key string
 
-const authAsKey = key("authToken")
-const authAsString = "authToken"
+var authAsKey = key("authToken")
+var authAsString = "authToken"
 
 func avoidingKeyCollisionsExample() {
 	tutorial.Section("Avoiding key collisions")
