@@ -59,7 +59,7 @@ The following is the suggested reading order:
   
 ## Essential packages
 
-These are the packages you'll find yourself using most frequently.
+These are some of the packages you'll find yourself using most frequently.
 
   1. [bufio](essential/bufio.go) ([Godoc](https://golang.org/pkg/bufio))
   1. [encoding/json](essential/json.go) ([Godoc](https://golang.org/pkg/encoding/json))
