@@ -33,8 +33,10 @@ func main() {
 
 	// The decision to solve two different problems with one data structure means that the documentation for contexts is unfortunately confusing
 
-	//creatingContextsExample()
+	creatingContextsExample()
 	avoidingKeyCollisionsExample()
+
+	//cancellationExample()
 
 }
 
@@ -132,4 +134,8 @@ func ReadAuthTokenOkay(ctx context.Context) (string, bool) {
 	}
 
 	return "", false
+}
+
+func cancellationExample() {
+	// ??
 }

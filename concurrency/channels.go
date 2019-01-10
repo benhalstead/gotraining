@@ -139,8 +139,12 @@ func selectExample() {
 	// In this example we fetch three web pages concurrently using a 'get' function, channels
 	// and the channel specific 'select' control structure to detect when the work is done
 
-	// We will create a separate 'done' channel for each page we're requesting.
-	// This could be done with a single channel (and would be a good refactoring exercise)
+	// We will create a separate 'done' channel for each page we're requesting
+
+	// NOTE: this is an artificial example - if you were doing something this simple in real life
+	// you would use a sync.WaitGroup
+	// https://stackoverflow.com/questions/19208725/example-for-sync-waitgroup-correct
+	// https://golang.org/pkg/sync/#WaitGroup
 
 	// When each request is done, the method will use the channel to indicate how long the request took
 	googleDone := make(chan time.Duration)
