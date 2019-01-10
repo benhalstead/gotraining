@@ -36,7 +36,7 @@ func main() {
 	creatingContextsExample()
 	avoidingKeyCollisionsExample()
 
-	//cancellationExample()
+	cancellationExample()
 
 }
 

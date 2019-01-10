@@ -45,7 +45,7 @@ func main() {
 	// Read values from the channel (you would normally do this in a loop of some sort)
 
 	// Sleep to illustrate that the write operation blocks until the value is read from the channel
-	tutorial.Tick(5, 200)
+	//tutorial.Tick(5, 200)
 
 	a := <-ic
 
@@ -74,10 +74,6 @@ func main() {
 	channelTypesExample()
 	closingExamples()
 	selectExample()
-
-}
-
-func bufferedChannelsExample() {
 
 }
 

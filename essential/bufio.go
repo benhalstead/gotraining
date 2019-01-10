@@ -19,7 +19,7 @@ func main() {
 	exampleReadingFiles()
 }
 
-// We have hard-code a UNIX style file path
+// We have hard-coded a UNIX style file path
 // The correct way to build a platforn independent path in go is to use the path/filepath package
 var testFile = "/tmp/go-example"
 
