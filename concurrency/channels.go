@@ -71,6 +71,17 @@ func main() {
 
 	fmt.Printf("%d %d\n", a, b)
 
+	channelTypesExample()
+	closingExamples()
+	selectExample()
+
+}
+
+func bufferedChannelsExample() {
+
+}
+
+func channelTypesExample() {
 	tutorial.Section("Types")
 
 	// You can declare a channel of any type (including other channels)
@@ -90,13 +101,15 @@ func main() {
 
 	mc := make(chan map[string]string)
 	tutorial.TypeValue(mc)
+}
 
+func closingExamples() {
 	tutorial.Section("Closing channels")
 
 	// The sending side of a channel can choose to close it. The receiving side can test to see if the channel has been closed
 	// and can stop waiting for data to be sent
 
-	c = make(chan int)
+	c := make(chan int)
 
 	go func() {
 		for i := 0; i < 10; i++ {
@@ -113,48 +126,53 @@ func main() {
 	}
 
 	// If you are reading from a channel outside of a range, you can use this syntax to check for a closed channel
-
-	tutorial.Section("Select and example")
-
-	// In this example we fetch three web pages concurrently using channels
-	// and the channel specific select control structure
-	// to detect when the work is done
-
 	if n, open := <-c; open {
 		fmt.Printf("Received %d\n", n)
 	} else {
 		fmt.Printf("Channel closed\n")
 	}
+}
 
-	var googleResp *http.Response
-	var bbcResp *http.Response
-	var cfResp *http.Response
+func selectExample() {
+	tutorial.Section("Select and example")
 
-	// In this example we will create a separate 'done' channel for each page we're requesting
-	// this could be done with a single channel (and would be a good refactoring exercise)
-	googleDone := make(chan bool)
-	bbcDone := make(chan bool)
-	cfDone := make(chan bool)
+	// In this example we fetch three web pages concurrently using a 'get' function, channels
+	// and the channel specific 'select' control structure to detect when the work is done
+
+	// We will create a separate 'done' channel for each page we're requesting.
+	// This could be done with a single channel (and would be a good refactoring exercise)
+
+	// When each request is done, the method will use the channel to indicate how long the request took
+	googleDone := make(chan time.Duration)
+	bbcDone := make(chan time.Duration)
+	cfDone := make(chan time.Duration)
+
+	start := time.Now()
 
 	// Spawn goroutines to fetch each URL, passing a pointer to an object to store the result in
-	go get("http://www.google.com", &googleResp, googleDone)
-	go get("http://www.bbc.com", &bbcResp, bbcDone)
-	go get("http://www.cloudfactory.com", &cfResp, cfDone)
+	go get("http://www.google.com", googleDone)
+	go get("http://www.bbc.com", bbcDone)
+	go get("http://www.cloudfactory.com", cfDone)
+
+	waitingFor := 3
 
 WaitLoop:
 	for {
 		// The select control structure is only useful for channels
 		// Each case in the select will fire if a value can be read from the channel
 		select {
-		case <-bbcDone:
-			fmt.Printf("BBC page done\n")
-		case <-googleDone:
-			fmt.Printf("Google done\n")
-		case <-cfDone:
-			fmt.Printf("Cloudfactory done\n")
+		case t := <-bbcDone:
+			waitingFor--
+			printTimeTaken("BBC", t)
+		case t := <-googleDone:
+			waitingFor--
+			printTimeTaken("Google", t)
+		case t := <-cfDone:
+			waitingFor--
+			printTimeTaken("CF", t)
 		default:
 			// The default case will fire if none of the other cases do
-			if googleResp != nil && bbcResp != nil && cfResp != nil {
+			if waitingFor == 0 {
 				break WaitLoop
 			}
 
@@ -166,19 +184,23 @@ WaitLoop:
 
 	}
 
-	fmt.Printf("Google response was %d\n", googleResp.StatusCode)
-	fmt.Printf("BBC response was %d\n", bbcResp.StatusCode)
-	fmt.Printf("CF response was %d\n", cfResp.StatusCode)
-
+	elapsed := time.Since(start)
+	printTimeTaken("Overall", elapsed)
 }
 
-func get(url string, result **http.Response, finish chan bool) {
+func get(url string, finish chan time.Duration) {
 
-	if r, err := http.Get(url); err == nil {
-		*result = r
-	} else {
+	start := time.Now()
+
+	if _, err := http.Get(url); err != nil {
 		fmt.Printf("Error reading %s: %s\n", url, err.Error())
 	}
 
-	finish <- true
+	elapsed := time.Since(start)
+
+	finish <- elapsed
+}
+
+func printTimeTaken(label string, t time.Duration) {
+	fmt.Printf("%s took %v\n", label, t)
 }
