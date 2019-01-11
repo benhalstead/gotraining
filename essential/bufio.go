@@ -12,7 +12,21 @@ func main() {
 
 	/*
 		File and stream IO in golang is spread over a number of packages. The low-level functions for performing
-		IO are in the io package, but you will more commonly use the higher-level functions in ioutil, bufio and text/scanner
+		IO are in the io package and os package, but you will more commonly use the higher-level functions in ioutil, bufio and text/scanner
+
+		The key interfaces for reading and writing from streams are io.Reader and io.Writer. Many types implement these interfaces directly
+		(os.File implements both) and many other types have functions that wrap them in those interfaces (strings.NewReader(s), for example))
+
+		When working with files on disk/network shares, the os package has a large number of helper functions for creating, opening, reading
+		and writing files. The use of these functions is encouraged, but care needs to be taken on the file system permissions used by these functions -
+		sometimes the defaults are not appropriate for a secure system.
+
+		Go is multi-platform, but even if your code will only ever realistically be run on UNIX type systems, it is considered good
+		practice to avoid hardcoding / characters in code. Use the functions in the filepath package instead
+
+		This file contains a couple basic examples of reading and writing to files. Look at the http.go file in this package
+		for and example of reading from a network connection.
+
 	*/
 
 	exampleWritingAFile()
@@ -33,7 +47,7 @@ func exampleWritingAFile() {
 		fmt.Println(err)
 	}
 
-	//Write file will overwrite any existing content
+	//WriteFile will overwrite any existing content
 
 	//If you want to generate the content of a file while you're writing it, you will need to open the file explicity and use a Writer
 	var f *os.File
