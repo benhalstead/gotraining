@@ -32,7 +32,7 @@ The following is the suggested reading order:
   1. [Structs](structures/structs.go)
   1. [Methods and receivers](structures/methods.go)
   1. [Interfaces](variablestypes/interfaces.go)
-  1. [Tags](variablestypes/tags.go)
+  1. [Tags](structures/tags.go)
   
 ## Error handling
  
@@ -61,6 +61,7 @@ The following is the suggested reading order:
 
 These are some of the packages you'll find yourself using most frequently.
 
+
   1. [bufio](essential/bufio.go) ([Godoc](https://golang.org/pkg/bufio))
   1. [encoding/json](essential/json.go) ([Godoc](https://golang.org/pkg/encoding/json))
   1. [net/http](essential/http.go) ([Godoc](https://golang.org/pkg/net/http))  
@@ -68,3 +69,4 @@ These are some of the packages you'll find yourself using most frequently.
   1. [strconv](essential/strconv.go) ([Godoc](https://golang.org/pkg/strconv))
   1. [strings](essential/strings.go) ([Godoc](https://golang.org/pkg/strings))
   1. [time](essential/time.go) ([Godoc](https://golang.org/pkg/time))  
+
