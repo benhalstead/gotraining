@@ -7,6 +7,8 @@ import (
 
 func main() {
 
+	// https://golang.org/pkg/time
+
 	// Date parsing is peculiar in Go. Instead of using symbols to represent a date format, you need to remember a particular date and time:
 	//
 	// Jan 2 15:04:05 2006 MST

@@ -27,6 +27,8 @@ func main() {
 		This file contains a couple basic examples of reading and writing to files. Look at the http.go file in this package
 		for and example of reading from a network connection.
 
+
+		https://golang.org/pkg/bufio
 	*/
 
 	exampleWritingAFile()

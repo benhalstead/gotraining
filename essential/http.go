@@ -11,6 +11,8 @@ import (
 func main() {
 
 	// Go's HTTP client library is similar to most modern languages. This file gives an example of a simple GET and POST
+
+	// https://golang.org/pkg/http
 	basicGet()
 	basicPost()
 	requestWithMoreControl()

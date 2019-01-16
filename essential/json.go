@@ -22,6 +22,8 @@ func main() {
 		common to use a map[string]interface{} instead - this is safer in some ways as some types of schema changes
 		(new fields added) can be mitigated against.
 
+		https://golang.org/pkg/json
+
 	*/
 
 	unmarshallIntoStructFromReader()
