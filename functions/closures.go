@@ -17,7 +17,7 @@ func main() {
 	dn()
 
 	// An anoymous function/lambda expression to add a percentage to a float
-	result := func(value float64, p float64) float64 {
+	result := func(value, p float64) float64 {
 		return (value / 100) * (p + 100)
 	}(50, 17.5)
 
