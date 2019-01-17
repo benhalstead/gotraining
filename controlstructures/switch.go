@@ -75,7 +75,3 @@ func main() {
 	}
 
 }
-
-func helper() bool {
-	return false
-}
