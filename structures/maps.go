@@ -23,7 +23,7 @@ func main() {
 	sim["TWO"] = 2
 
 	//...and read from it
-	fmt.Printf("%d %d %d", sim["ONE"], sim["TWO"], sim["THREE"])
+	fmt.Printf("%d %d %d\n", sim["ONE"], sim["TWO"], sim["THREE"])
 
 	//If you request a key that is not present in the map, you will receive the ZERO VALUE for the map's value type
 	//In the example above, requesting sim["THREE"] returns 0, because that is the zero value for int
