@@ -48,10 +48,10 @@ func main() {
 	ss := ms[1:] // Every element after and including element at index 1
 	fmt.Printf("%v Length: %d\n", ss, len(ss))
 
-	ss = ms[:3] // Every element up to and including element at index 3
+	ss = ms[:3] // Every element up to but excluding element at index 3
 	fmt.Printf("%v Length: %d\n", ss, len(ss))
 
-	ss = ms[3:5] // Every element from (and including) index 3 to (and including) index 5
+	ss = ms[3:5] // Every element from (and including) index 3 to (and excluding) index 5
 	fmt.Printf("%v Length: %d\n", ss, len(ss))
 
 	tutorial.Section("Iterating over slices")
