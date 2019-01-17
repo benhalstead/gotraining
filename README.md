@@ -9,6 +9,15 @@ This repo should not be used as an example of how to organise your project or st
 source files. For a better example of organisation and structure, clone the [Granitic source
 repository](https://github.com/graniticio/granitic)
 
+## How to run example code
+
+```
+GOPATH=$(go env GOPATH)
+git clone https://github.com/benhalstead/gotraining $GOPATH/src/github.com/benhalstead/gotraining
+cd $GOPATH/src/github.com/benhalstead/gotraining
+go run concurrency/goroutines.go
+```
+
 The following is the suggested reading order:
 
 ## Foundations
