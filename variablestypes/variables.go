@@ -28,7 +28,7 @@ func main() {
 	var y int
 
 	//Declare and set value, let the compiler work out the type
-	var z int = 2
+	var z = 2
 
 	// fmt.Printf is Go's standard print function. The %T verb allows you to print the type of a variable
 	fmt.Printf("%T %T %T %T\n", x, n, y, z)
